@@ -79,11 +79,7 @@ public abstract class Persona {
     }
 
     
-    public double calcularSalario(){
-        
-        return 0.00;
-        
-    }
+    public abstract double calcularSalario();
 
     @Override
     public int hashCode() {

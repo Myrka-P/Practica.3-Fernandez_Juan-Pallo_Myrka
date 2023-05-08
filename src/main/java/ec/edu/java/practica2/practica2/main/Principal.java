@@ -10,6 +10,7 @@ package ec.edu.java.practica2.practica2.main;
 import Clases.Cantante;
 import Clases.Persona;
 import Controlador.IControlador;
+import static Controlador.IControlador.MAX_OBJECTS;
 import Controlador.PersonaControlador;
 import java.util.Scanner;
 
@@ -40,13 +41,34 @@ public class Principal {
             switch (opcion) {
                 case 1:
                     
-                    Persona cantante1= new Cantante();
-                    controlador.create(cantante1);
-                    System.out.println("Ingreso de Cantante /n Ingrese nombre del cantante ");
-                    cantante1.setNombre(scanner.nextLine());
+                    Persona[] personas = new Persona[MAX_OBJECTS];
                     
-                    //System.out.println("Cantante agregado exitosamente.");
-                    System.out.println(cantante1);
+                    
+                    /*System.out.println("Ingrese nombre de Cantante");
+                    String nombre = scanner.next();
+                    
+                    System.out.println("Ingrese codigo de Cantante");
+                    int codigo = scanner.nextInt();
+                    p1.setCodigo(codigo);
+                    System.out.println("Ingrese apellido de Cantante");
+                    String apellido = scanner.next();
+                    p1.setApellido(apellido);
+                    System.out.println("Ingrese edad de Cantante");
+                    int edad = scanner.nextInt();
+                    p1.setEdad(edad);
+                    System.out.println("Ingrese nacionalidad de Cantante");
+                    String nacionalidad = scanner.next();
+                    p1.setNacionalidad(nacionalidad);
+                    System.out.println("Ingrese salario de Cantante");
+                    double salario = scanner.nextDouble();
+                    p1.setSalario(salario);
+                    scanner.nextLine(); /*se debe llamar a nextLine() después de nextInt() 
+                    para evitar saltos de línea no deseados
+                    
+                    System.out.println(p1);*/
+                    
+                    System.out.println("Cantante agregado exitosamente.");
+                    
                     break;
                 
                 case 2:
@@ -106,6 +128,7 @@ public class Principal {
 
                 case 7:
                     System.out.println("Saliendo del programa...");
+                    
                     break;
 
                 default:

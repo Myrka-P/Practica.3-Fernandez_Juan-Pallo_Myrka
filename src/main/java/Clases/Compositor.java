@@ -18,13 +18,6 @@ public class Compositor extends Persona{
 
     public Compositor() {
     }
-
-    public Compositor(int numeroDeComposiciones, List<Cancion> cancionesTop100Billboard, List<Cantante> clientes) {
-        this.numeroDeComposiciones = numeroDeComposiciones;
-        this.cancionesTop100Billboard = cancionesTop100Billboard;
-        this.clientes = clientes;
-    }
-
     
     public Compositor(int numeroDeComposiciones, List<Cancion> cancionesTop100Billboard, List<Cantante> clientes, int codigo, String nombre, String apellido, int edad, String Nacionalidad, double salario) {
         super(codigo, nombre, apellido, edad, Nacionalidad, salario);
@@ -93,36 +86,23 @@ public class Compositor extends Persona{
     }
      
     
+     @Override
     public double calcularSalario(){
         double salarioBase = 1000.0;
     
-   /* if (tipoArtista.equals("cantante")) {
-        if (numSencillos > 10 && numGiras > 3) {
-            salarioBase += 1000.0;
-        } else if (numSencillos >= 1 && numSencillos <= 10) {
-            salarioBase += salarioBase * 0.05;
-        }
-        
-        if (numGiras >= 1 && numGiras <= 3) {
-            salarioBase += salarioBase * 0.03;
-        }
-        
-        if (numDiscos >= 5) {
-            salarioBase += 2000.0;
-        }
-    } else if (tipoArtista.equals("compositor")) {
-        if (numTop100 > 5) {
+   
+        if (numeroDeComposiciones> 5) {
             salarioBase += 300.0;
         }
         
-        if (numTop100 >= 1 && numTop100 <= 3) {
+        if (cancionesTop100Billboard.size() >= 1 && cancionesTop100Billboard.size() <= 3) {
             salarioBase += salarioBase * 0.1;
-        } else if (numTop100 >= 4 && numTop100 <= 6) {
+        } else if (cancionesTop100Billboard.size() >= 4 && cancionesTop100Billboard.size() <= 6) {
             salarioBase += salarioBase * 0.2;
-        } else if (numTop100 > 6) {
+        } else if (cancionesTop100Billboard.size() > 6) {
             salarioBase += salarioBase * 0.3;
         }
-    }*/
+    
     
     return salarioBase;
         
