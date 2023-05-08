@@ -159,6 +159,7 @@ public class Cantante extends Persona {
         
         discografia = new ArrayList<>();
         
+        
         Disco d1 = new Disco(01, "cancion 1", 2010);
         Disco d2 = new Disco(02, "cancion 2", 2011);
         Disco d3 = new Disco(03, "cancion 3", 2013);
@@ -175,11 +176,9 @@ public class Cantante extends Persona {
         discografia.add(d6);
         discografia.add(d7);
        
-        d1.setCodigo(codigo);
-        d1.setNombre(nombre);
-        d1.setAnioDeLanza(anioDeLanza);
         
-        System.out.println(d1);
+        
+        System.out.println(discografia.toString());
     }
 
 }

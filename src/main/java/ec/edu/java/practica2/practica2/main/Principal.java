@@ -5,6 +5,7 @@
 package ec.edu.java.practica2.practica2.main;
 
 import Clases.Cantante;
+import Clases.Compositor;
 import Controlador.IControlador;
 import Controlador.PersonaControlador;
 import java.util.Scanner;
@@ -86,18 +87,29 @@ public class Principal {
                     break;
 
                 case 2:
-                /*System.out.println("Ingreso de Compositor");
-                    System.out.print("Ingrese el nombre: ");
-                    String nombreCompositor = scanner.next();
-                    System.out.print("Ingrese el número de composiciones: ");
-                    int numComposiciones = scanner.nextInt();
-                    System.out.print("Ingrese el número de canciones en el top 100 de billboard: ");
-                    int numTop100 = scanner.nextInt();
+                    System.out.print("Ingrese el número de compositores: ");
+                    int numCompo = scanner.nextInt();
 
-                    Compositor compositor = new Compositor(nombreCompositor, numComposiciones, numTop100);
-                    controlador.agregarCompositor(compositor);
-                    System.out.println("Compositor agregado exitosamente.");
-                    */
+                    Compositor[] compositores = new Compositor[numCompo];
+                    for (int i = 0; i < numCompo; i++) {
+                       System.out.print("Número de composiciones: ");
+                        int numeroDeComposiciones = scanner.nextInt();
+                        System.out.print("Código: ");
+                        int codigo = scanner.nextInt();
+                        System.out.print("Nombre : ");
+                        String nombre = scanner.next();
+                        System.out.print("Apellido: ");
+                        String apellido = scanner.next();
+                        System.out.print("Edad: ");
+                        int edad = scanner.nextInt();
+                        System.out.print("Nacionalidad: ");
+                        String nacionalidad = scanner.next();
+                        System.out.print("Salario: ");
+                        double salario = scanner.nextDouble();
+                        Compositor compositor = new Compositor(numeroDeComposiciones, codigo, nombre, apellido, edad, nacionalidad, salario);
+                        compositores[i] = compositor;
+                    }
+                
                     break;
 
                 case 3:
