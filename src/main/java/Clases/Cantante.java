@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Juan Fernandez
  */
-public class Cantante {
+public class Cantante extends Persona{
     private String nombreArtistico;
     private String generoMusical;
     private int numeroDeSencillos;
@@ -22,6 +22,15 @@ public class Cantante {
     public Cantante() {
     }
 
+    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, int codigo, String nombre, String apellido, int edad, String Nacionalidad, double salario) {
+        super(codigo, nombre, apellido, edad, Nacionalidad, salario);
+        this.nombreArtistico = nombreArtistico;
+        this.generoMusical = generoMusical;
+        this.numeroDeSencillos = numeroDeSencillos;
+        this.numeroDeConciertos = numeroDeConciertos;
+        this.numeroDeGiras = numeroDeGiras;
+    }
+
     public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, List<Disco> discografia) {
         this.nombreArtistico = nombreArtistico;
         this.generoMusical = generoMusical;
@@ -30,6 +39,27 @@ public class Cantante {
         this.numeroDeGiras = numeroDeGiras;
         this.discografia = discografia;
     }
+
+    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras) {
+        this.nombreArtistico = nombreArtistico;
+        this.generoMusical = generoMusical;
+        this.numeroDeSencillos = numeroDeSencillos;
+        this.numeroDeConciertos = numeroDeConciertos;
+        this.numeroDeGiras = numeroDeGiras;
+    }
+
+    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, List<Disco> discografia, int codigo, String nombre, String apellido, int edad, String Nacionalidad, double salario) {
+        super(codigo, nombre, apellido, edad, Nacionalidad, salario);
+        this.nombreArtistico = nombreArtistico;
+        this.generoMusical = generoMusical;
+        this.numeroDeSencillos = numeroDeSencillos;
+        this.numeroDeConciertos = numeroDeConciertos;
+        this.numeroDeGiras = numeroDeGiras;
+        this.discografia = discografia;
+    }
+
+    
+    
 
     public String getNombreArtistico() {
         return nombreArtistico;

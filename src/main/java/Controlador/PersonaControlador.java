@@ -40,27 +40,63 @@ public class PersonaControlador implements IControlador {
 
     @Override
     public void create(Persona obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+         if (obj instanceof Persona) {
+            persona.add((Persona) obj);
+        }
+        
     }
 
     @Override
     public Object read(Persona obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(obj instanceof Persona){
+            Persona nombre = (Persona) obj;
+            for (Persona persona : persona) {
+                if (persona.getNombre().equals(nombre)) {
+                    return persona;
+                }
+            }
+        }
+
+        return null;
     }
 
     @Override
     public void update(Persona obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (obj instanceof Persona) {
+
+            String nacionalidad = ((Persona) obj).getNacionalidad();
+            for (int i = 0; i < persona.size(); i++) {
+                Persona persona1 = persona.get(i);
+                if (persona1.getNacionalidad().equals(nacionalidad)) {
+                    persona.set(i, (Persona) obj);
+                    break;
+                }
+            }
+
+        }
     }
 
     @Override
     public void delete(Persona obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (obj instanceof Persona) {
+
+            for (int i = 0; i < persona.size(); i++) {
+                Persona persona1 = persona.get(i);
+                if (persona1.equals((Persona) obj)) {
+                    persona.remove(i);
+                    break;
+                }
+            }
+
+        }
     }
 
     @Override
     public void list() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(Persona persona1 : persona){                     
+            System.out.println(persona1.toString());
+        }
     }
 
     

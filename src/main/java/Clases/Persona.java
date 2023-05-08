@@ -13,18 +13,18 @@ public abstract class Persona {
     private String nombre;
     private String apellido;
     private int edad;
-    private String Nacionalidad;
+    private String nacionalidad;
     private double salario;
 
     public Persona() {
     }
     
-    public Persona(int codigo, String nombre, String apellido, int edad, String Nacionalidad, double salario) {
+    public Persona(int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.Nacionalidad = Nacionalidad;
+        this.nacionalidad = nacionalidad;
         this.salario = salario;
     }
 
@@ -63,11 +63,11 @@ public abstract class Persona {
     }
 
     public String getNacionalidad() {
-        return Nacionalidad;
+        return nacionalidad;
     }
 
     public void setNacionalidad(String Nacionalidad) {
-        this.Nacionalidad = Nacionalidad;
+        this.nacionalidad = Nacionalidad;
     }
 
     public double getSalario() {
@@ -115,7 +115,7 @@ public abstract class Persona {
     public String toString() {
         return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre 
                 + ", apellido=" + apellido + ", edad=" + edad + ", Nacionalidad="
-                + Nacionalidad + ", salario=" + salario + '}';
+                + nacionalidad + ", salario=" + salario + '}';
     }
     
     
