@@ -4,7 +4,7 @@
  */
 package Clases;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -42,9 +42,10 @@ public class Cantante extends Persona {
         this.numeroDeConciertos = numeroDeConciertos;
         this.numeroDeGiras = numeroDeGiras;
     }
-    
-    
-    
+
+    public Cantante(List<Disco> discografia) {
+        this.discografia = discografia;
+    }
 
     public String getNombreArtistico() {
         return nombreArtistico;
@@ -97,9 +98,7 @@ public class Cantante extends Persona {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.numeroDeSencillos;
-        hash = 97 * hash + this.numeroDeGiras;
-        hash = 97 * hash + Objects.hashCode(this.discografia);
+        hash = 59 * hash + Objects.hashCode(this.nombreArtistico);
         return hash;
     }
 
@@ -115,14 +114,10 @@ public class Cantante extends Persona {
             return false;
         }
         final Cantante other = (Cantante) obj;
-        if (this.numeroDeSencillos != other.numeroDeSencillos) {
-            return false;
-        }
-        if (this.numeroDeGiras != other.numeroDeGiras) {
-            return false;
-        }
-        return Objects.equals(this.discografia, other.discografia);
+        return Objects.equals(this.nombreArtistico, other.nombreArtistico);
     }
+
+    
 
     @Override
     public String toString() {
@@ -151,34 +146,10 @@ public class Cantante extends Persona {
         return salarioBase;
     }
 
-    
-    
-    
-    
     public void agregarDisco(int codigo, String nombre, int anioDeLanza) {
-        
-        discografia = new ArrayList<>();
-        
-        
-        Disco d1 = new Disco(01, "cancion 1", 2010);
-        Disco d2 = new Disco(02, "cancion 2", 2011);
-        Disco d3 = new Disco(03, "cancion 3", 2013);
-        Disco d4 = new Disco(04, "cancion 4", 2016);
-        Disco d5 = new Disco(05, "cancion 5", 2018);
-        Disco d6 = new Disco(06, "cancion 6", 2022);
-        Disco d7 = new Disco(07, "cancion 7", 2022);
-        
-        discografia.add(d1);
-        discografia.add(d2);
-        discografia.add(d3);
-        discografia.add(d4);        
-        discografia.add(d5);
-        discografia.add(d6);
-        discografia.add(d7);
-       
-        
-        
-        System.out.println(discografia.toString());
+
+        Disco disco = new Disco(codigo, nombre, anioDeLanza);
+        this.discografia.add(disco);//Se agrega los discos  a la lista discografia
     }
 
 }

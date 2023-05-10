@@ -14,11 +14,11 @@ public interface IControlador {
     
     int MAX_OBJECTS = 10;
     
-    public abstract  void create (Persona obj);
-    public abstract Object read (Persona obj);
-    public abstract void update (Persona obj);
-    public abstract void delete (Persona obj);
-    public abstract void list ();
+    public abstract void create(Object obj); //C
+    public abstract Object read(Object obj); //R
+    public abstract void update(Object obj); //U
+    public abstract void delete(Object obj); //D
+    public abstract void list();
     
 }
     

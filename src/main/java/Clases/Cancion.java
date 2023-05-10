@@ -60,11 +60,8 @@ public class Cancion {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + this.codigo;
-        hash = 83 * hash + Objects.hashCode(this.titulo);
-        hash = 83 * hash + Objects.hashCode(this.letra);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.tiempoEnMinu) ^ (Double.doubleToLongBits(this.tiempoEnMinu) >>> 32));
+        int hash = 7;
+        hash = 47 * hash + this.codigo;
         return hash;
     }
 
@@ -80,17 +77,10 @@ public class Cancion {
             return false;
         }
         final Cancion other = (Cancion) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.tiempoEnMinu) != Double.doubleToLongBits(other.tiempoEnMinu)) {
-            return false;
-        }
-        if (!Objects.equals(this.titulo, other.titulo)) {
-            return false;
-        }
-        return Objects.equals(this.letra, other.letra);
+        return true;
     }
+
+      
  
     @Override
     public String toString() {

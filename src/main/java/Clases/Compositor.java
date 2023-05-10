@@ -106,35 +106,15 @@ public class Compositor extends Persona {
 
     }
 
-   /* Cancion c1 = new Cancion(01, "Un cigarrillo", "Regueton", 3.24);
-    Cancion c2 = new Cancion(02, "Fanatica sensual", "Regueton", 4.00);
-    Cancion c3 = new Cancion(03, "Es un secreto", "Regueton", 3.34);
-    Cancion c4 = new Cancion(04, "Zapatito roto", "Regueton", 4.07);
-    Cancion c5 = new Cancion(05, "La receta", "Regueton", 3.10);
-    Cancion c6 = new Cancion(06, "Si no le contesto", "Regueton", 3.41);*/
-
    
 
     public void agregarCancion(int codigo, String titulo, String letra, double tiempoEnMinutos) {
-        cancionesTop100Billboard = new ArrayList<>();
-        Cancion c1 = new Cancion(01, "Un cigarrillo", "Regueton", 3.24);
-        Cancion c2 = new Cancion(02, "Fanatica sensual", "Regueton", 4.00);
-        Cancion c3 = new Cancion(03, "Es un secreto", "Regueton", 3.34);
-        Cancion c4 = new Cancion(04, "Zapatito roto", "Regueton", 4.07);
-        Cancion c5 = new Cancion(05, "La receta", "Regueton", 3.10);
-        Cancion c6 = new Cancion(06, "Si no le contesto", "Regueton", 3.41);
-
-        cancionesTop100Billboard.add(c1);
-        cancionesTop100Billboard.add(c2);
-        cancionesTop100Billboard.add(c3);
-        cancionesTop100Billboard.add(c4);
-        cancionesTop100Billboard.add(c5);
-        cancionesTop100Billboard.add(c6);
-
+        Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos);
+        this.cancionesTop100Billboard.add(cancion);//Se agrega las canciones a la lista canciones
     }
 
     public void agregarCliente(Cantante cliente) {
-        clientes.add(cliente);
+        clientes.add(cliente);//Se agrega un cliente a la lista cliente
     }
 
     @Override
