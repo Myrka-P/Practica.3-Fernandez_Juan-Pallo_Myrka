@@ -170,9 +170,9 @@ public class PersonaControlador implements IControlador {//Clase PersonaControla
 
     public String buscarCompositorPorNombreDeCancion(String nombreCancion) {
         String retorno = "";
-        for (Persona persona : persona) {  //Recorremos la lista persona
-            if (persona instanceof Compositor) { //Si la persona es de clase Compositor entonces
-                Compositor compositor = (Compositor) persona;
+        for (Persona personaV : persona) {  //Recorremos la lista persona
+            if (personaV instanceof Compositor) { //Si la persona es de clase Compositor entonces
+                Compositor compositor = (Compositor) personaV;
                 for (Cancion cancion : compositor.getCancionesTop100Billboard()) {
                     if (cancion.getTitulo().equalsIgnoreCase(nombreCancion)) {//Si el nombre de la cancion que recorremos es igual al nombre del parametro de entrada entocnes
                         retorno += compositor.getNombre() + " " + compositor.getApellido() + "\n";
