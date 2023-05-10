@@ -17,10 +17,10 @@ public abstract class Persona {
     private double salario;
 
     public Persona() {
-    }
+    }//constructor vacio
     
-    public Persona(int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
-        this.codigo = codigo;
+    public Persona(int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {//constructor con parametros
+        this.codigo = codigo;//constructor con los parametros de la clase Persona
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -28,7 +28,7 @@ public abstract class Persona {
         this.salario = salario;
     }
 
-    
+    //metodos de encapsulamiento get y set 
     
     public int getCodigo() {
         return codigo;
@@ -81,7 +81,7 @@ public abstract class Persona {
     
     public abstract double calcularSalario();
 
-    @Override
+    @Override//Retorna el valor del hashcode
     public int hashCode() {
         int hash = 7;
         hash = 83 * hash + this.codigo;
@@ -90,6 +90,10 @@ public abstract class Persona {
 
     @Override
     public boolean equals(Object obj) {
+        /*
+    *Compara si la instancia actual de la clase Cantante es igual a otro objeto.
+    *retorna  true si la instancia actual de esta clase Cantante es igual al objeto pasado como parametro
+     */
         if (this == obj) {
             return true;
         }
@@ -108,7 +112,7 @@ public abstract class Persona {
     
     
     @Override
-    public String toString() {
+    public String toString() {//Metodo toString que devuelve de forma de string los atributos
         return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre 
                 + ", apellido=" + apellido + ", edad=" + edad + ", Nacionalidad="
                 + nacionalidad + ", salario=" + salario + '}';

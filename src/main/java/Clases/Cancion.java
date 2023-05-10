@@ -16,10 +16,10 @@ public class Cancion {
     private String letra;
     private double tiempoEnMinu;
 
-    public Cancion() {
+    public Cancion() {//constructor vacio
     }
 
-    public Cancion(int codigo, String titulo, String letra, double tiempoEnMinu) {
+    public Cancion(int codigo, String titulo, String letra, double tiempoEnMinu) {//constructor con los parametros de la clase Cancion
         this.codigo = codigo;
         this.titulo = titulo;
         this.letra = letra;
@@ -67,6 +67,10 @@ public class Cancion {
 
     @Override
     public boolean equals(Object obj) {
+        /*
+    *Compara si la instancia actual de la clase Cantante es igual a otro objeto.
+    *retorna  true si la instancia actual de esta clase Cantante es igual al objeto pasado como parametro
+     */
         if (this == obj) {
             return true;
         }
@@ -81,7 +85,7 @@ public class Cancion {
     }
 
       
- 
+ //Metodo toString que devuelve de forma de string los atributos
     @Override
     public String toString() {
         return "Cancion{" + "codigo=" + codigo + ", titulo=" + titulo +

@@ -16,15 +16,16 @@ public class Disco {
     private String nombre;
     private int anioDeLanza;
 
-    public Disco() {
+    public Disco() {//constructor vacio
     }
 
     public Disco(int codigo, String nombre, int anioDeLanza) {
-        this.codigo = codigo;
+        this.codigo = codigo;//constructor con los parametros de la clase Disco
         this.nombre = nombre;
         this.anioDeLanza = anioDeLanza;
     }
-
+  //metodos de encapsulamiento get y set 
+    
     public int getCodigo() {
         return codigo;
     }
@@ -50,7 +51,7 @@ public class Disco {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() {//Retorna el valor del hashcode
         int hash = 3;
         hash = 29 * hash + this.codigo;
         hash = 29 * hash + Objects.hashCode(this.nombre);
@@ -60,6 +61,10 @@ public class Disco {
 
     @Override
     public boolean equals(Object obj) {
+        /*
+    *Compara si la instancia actual de la clase Cantante es igual a otro objeto.
+    *retorna  true si la instancia actual de esta clase Cantante es igual al objeto pasado como parametro
+     */
         if (this == obj) {
             return true;
         }

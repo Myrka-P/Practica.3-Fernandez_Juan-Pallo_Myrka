@@ -35,19 +35,19 @@ public class Principal {
                     controlador.create(cantante);
                     break;
                 case 2:
-                    Compositor compositor = agregarCompositor();
-                    controlador.create(compositor);
+                    Compositor compositores = agregarCompositor();
+                    controlador.create(compositores);
                     break;
                 case 3:
-                    System.out.println("Ingrese el codigo del compositor a agregar clientes");
+                    System.out.println("Ingrese el codigo del compositor para agregar clientes: ");
                     int codigo = scaner.nextInt();
                     scaner.nextLine();
                     Compositor leerCompositor = controlador.readCompositor(codigo);
                     if (leerCompositor == null) {
-                        System.out.println("Compositor no encontrado con codigo");
+                        System.out.println("Compositor no encontrado ");
                     } else {
                         leerCompositor = agregarClientes(leerCompositor);
-                        controlador.update(leerCompositor);
+                        controlador.updateCompositor(leerCompositor);
                     }
                     break;
                 case 4:
@@ -55,13 +55,13 @@ public class Principal {
                     break;
                 case 5:
                     System.out.println("Ingrese el nombre del disco");
-                    String nombreDisco = scaner.nextLine();
-                    System.out.println(controlador.buscarCompositorPorNombreDeCancion(nombreDisco));
+                    String nombreDeDisco = scaner.nextLine();
+                    System.out.println(controlador.buscarCompositorPorNombreDeCancion(nombreDeDisco));
                     break;
                 case 6:
                     System.out.println("Ingrese el nombre de la cancion");
-                    String nombreCancion = scaner.nextLine();
-                    System.out.println(controlador.buscarCompositorPorNombreDeCancion(nombreCancion));
+                    String nombreDeCancion = scaner.nextLine();
+                    System.out.println(controlador.buscarCompositorPorNombreDeCancion(nombreDeCancion));
                     break;
                 case 7:
                     System.exit(0);

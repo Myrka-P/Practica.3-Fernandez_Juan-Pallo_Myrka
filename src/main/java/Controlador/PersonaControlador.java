@@ -16,78 +16,81 @@ import java.util.List;
  *
  * @author Juan Fernandez
  */
-public class PersonaControlador implements IControlador {
+public class PersonaControlador implements IControlador {//Clase PersonaControlador que implementa la Clase ICOntrolador para manejar sus metodos y sobreescribrilos
 
-    private List<Persona> persona;
+    private List<Persona> persona;//lista de la clase persona
 
     public PersonaControlador() {
-        persona = new ArrayList<>();
+        persona = new ArrayList<>();//Constructor que inicializa la lista de la clase
     }
 
     public String imprimir() {
         String retorno = "";
         for (Persona persona : this.persona) {
             if (persona instanceof Compositor) {  //If con la instruccion instanceOf para comprobar si es de la clase hija Compositor
-                Compositor compositor = (Compositor) persona;// Es un objeto de la clase Compositor
-                // Concatenamos la salida con el toString
+                Compositor compositor = (Compositor) persona;
                 retorno += compositor.toString() + " \nSalario Final: " + compositor.calcularSalario() + "\n";
-                //else if con la instruccion instanceOf para comprobar si es de la clase hija Cantante
             } else if (persona instanceof Cantante) {
-                // Es un objeto de la clase Cantante
+
                 Cantante cantante = (Cantante) persona;
-                // Concatenamos la salida con el toString
-                retorno += cantante.toString() + " \nSalario Final: " + cantante.calcularSalario() + "\n";;
+                retorno += cantante.toString() + " \nSalario Final: " + cantante.calcularSalario() + "\n";;//metodo to string
             }
         }
-        //Retornamos la variable salida para mostrar en la consola
-        return retorno;
+        return retorno;//Retornamos la variable
     }
 
     public String buscarPorNombre(String valor) {
         String retorno = "";
-        //Recorremos la lista persona
-        for (Persona persona : persona) {
-            //Si la persona es de clase Cantante entonces
-            if (persona instanceof Cantante) {
-                //Obtenemos el obj persona y casteamos a clase Cantante
-                Cantante cantante = (Cantante) persona;
-                //De este cantante recorremos sus discos para encontrar el nombre del disco que buscamos
+
+        for (Persona persona : persona) {// Bucle para Recorrer la lista persona
+            if (persona instanceof Cantante) {//Si la persona es de clase Cantante entonces
+                Cantante cantante = (Cantante) persona;//Obtenemos el obj persona y casteamos a clase Cantante
                 for (Disco disco : cantante.getDiscografia()) {
-                    //Si el nombre del disco que recorremos es igual al nombre del parametro de entrada entocnes
-                    if (disco.getNombre().equalsIgnoreCase(valor)) {
-                        //Concatenamos al string resultante el nombre y apellido del cantante 
+                    if (disco.getNombre().equalsIgnoreCase(valor)) { //Si el nombre del disco es igual al nombre del parametro de entrada entocnes corre el codigo
                         retorno += cantante.getNombre() + " " + cantante.getApellido() + "\n";
                         break;
                     }
                 }
             }
         }
-        //Retornamos el String de las personas que tienen un disco con el nombre como parametro
-        return retorno;
+        return retorno;//retornamos la variable
+
+    }
+    public void updateCompositor(Object obj) {
+        
+        if (obj instanceof Compositor) {
+             int codigo = ((Compositor) obj).getCodigo();
+            //Recorremos el listado de personas
+            for (int i = 0; i < persona.size(); i++) {
+                //Obtenemos el objeto persona de la lista personas
+                Persona personaV = persona.get(i);
+                //Si el codigo del obj persona es igual al codigo de la persona de lista Y este obj es de clase Compositor entonces
+                if (personaV.getCodigo() == codigo && personaV instanceof Compositor) {
+                    //Actualizamos el obj con el nuevo entrante
+                    persona.set(i, (Compositor) obj);
+                    break;
+                }
+            }
+
+        }
 
     }
 
     public String buscarPorTitulo(String valor) {
         String retorno = "";
-        //Recorremos la lista persona
-        for (Persona persona : persona) {
-            //Si la persona es de clase Compositor entonces
+
+        for (Persona persona : persona) {//Recorremos la lista persona
             if (persona instanceof Compositor) {
-                //Obtenemos el obj persona y casteamos a clase Compositor
                 Compositor compositor = (Compositor) persona;
-                //De este compositor recorremos sus canciones para encontrar el nombre de la cancion que buscamos
                 for (Cancion cancion : compositor.getCancionesTop100Billboard()) {
-                    //Si el nombre de la cancion que recorremos es igual al nombre del parametro de entrada entocnes
                     if (cancion.getTitulo().equalsIgnoreCase(valor)) {
-                        //Concatenamos al string resultante el nombre y apellido del compositor
                         retorno += compositor.getNombre() + " " + compositor.getApellido() + "\n";
                         break;
                     }
                 }
             }
         }
-        //Retornamos el String de las personas que tienen una cancion con el nombre como parametro
-        return retorno;
+        return retorno;//retornamos la variable
 
     }
 
@@ -149,42 +152,35 @@ public class PersonaControlador implements IControlador {
 
         }
     }
+
     public Compositor readCompositor(Object obj) {
-        // If para comprobar si el obj que pasa es un int que es el tipo de variable Codigo 
         if (obj instanceof Integer) {
             int codigo = (int) obj;
-            // Recorremos la lista de personas
-            for (Persona persona : persona) {
-                // Si el codigo entrante es igual al codigo de la lista persona Y la persona es de clase Compositor entonces
-                if (persona.getCodigo() == codigo && persona instanceof Compositor) {
-                    //Devolvemos el objeto que se busca
-                    return (Compositor) persona;
+
+            for (Persona persona : persona) {// Recorremos la lista de personas
+                if (persona.getCodigo() == codigo && persona instanceof Compositor) {// Si el codigo entrante es igual al codigo de la lista persona Y la persona es de clase Compositor entonces
+                    return (Compositor) persona;//Devolvemos el objeto que se busca
+
                 }
             }
         }
 
         return null;
     }
+
     public String buscarCompositorPorNombreDeCancion(String nombreCancion) {
-        String salida="";
-        //Recorremos la lista persona
-        for (Persona persona : persona) {
-            //Si la persona es de clase Compositor entonces
-            if (persona instanceof Compositor) {
-               //Obtenemos el obj persona y casteamos a clase Compositor
+        String retorno = "";
+        for (Persona persona : persona) {  //Recorremos la lista persona
+            if (persona instanceof Compositor) { //Si la persona es de clase Compositor entonces
                 Compositor compositor = (Compositor) persona;
-                 //De este compositor recorremos sus canciones para encontrar el nombre de la cancion que buscamos
                 for (Cancion cancion : compositor.getCancionesTop100Billboard()) {
-                    //Si el nombre de la cancion que recorremos es igual al nombre del parametro de entrada entocnes
-                    if (cancion.getTitulo().equalsIgnoreCase(nombreCancion)) {
-                        //Concatenamos al string resultante el nombre y apellido del compositor
-                        salida += compositor.getNombre() + " " + compositor.getApellido()+"\n";
+                    if (cancion.getTitulo().equalsIgnoreCase(nombreCancion)) {//Si el nombre de la cancion que recorremos es igual al nombre del parametro de entrada entocnes
+                        retorno += compositor.getNombre() + " " + compositor.getApellido() + "\n";
                         break;
                     }
                 }
             }
         }
-        //Retornamos el String de las personas que tienen una cancion con el nombre como parametro
-        return salida;
+       return retorno;//retornamos la variable de salida
     }
 }

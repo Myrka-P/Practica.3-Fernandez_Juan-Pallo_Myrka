@@ -21,11 +21,11 @@ public class Cantante extends Persona {
     private int numeroDeGiras;
     private List<Disco> discografia;
 
-    public Cantante() {
+    public Cantante() {//constructor vacio
     }
 
     public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, List<Disco> discografia, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
-        super(codigo, nombre, apellido, edad, nacionalidad, salario);
+        super(codigo, nombre, apellido, edad, nacionalidad, salario);//constructor con los parametros de la clase Cantante
         this.nombreArtistico = nombreArtistico;
         this.generoMusical = generoMusical;
         this.numeroDeSencillos = numeroDeSencillos;
@@ -35,14 +35,15 @@ public class Cantante extends Persona {
     }
 
     public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
-        super(codigo, nombre, apellido, edad, nacionalidad, salario);
+        super(codigo, nombre, apellido, edad, nacionalidad, salario);//constructor con 5 parametros de la clase Cantante
         this.nombreArtistico = nombreArtistico;
         this.generoMusical = generoMusical;
         this.numeroDeSencillos = numeroDeSencillos;
         this.numeroDeConciertos = numeroDeConciertos;
         this.numeroDeGiras = numeroDeGiras;
     }
-
+  //metodos de encapsulamiento get y set 
+    
     public Cantante(List<Disco> discografia) {
         this.discografia = discografia;
     }
@@ -96,7 +97,7 @@ public class Cantante extends Persona {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() {//Retorna el valor del hashcode
         int hash = 7;
         hash = 59 * hash + Objects.hashCode(this.nombreArtistico);
         return hash;
@@ -104,6 +105,10 @@ public class Cantante extends Persona {
 
     @Override
     public boolean equals(Object obj) {
+    /*
+    *Compara si la instancia actual de la clase Cantante es igual a otro objeto.
+    *retorna  true si la instancia actual de esta clase Cantante es igual al objeto pasado como parametro
+     */
         if (this == obj) {
             return true;
         }
@@ -120,7 +125,7 @@ public class Cantante extends Persona {
     
 
     @Override
-    public String toString() {
+    public String toString() {//Metodo toString que devuelve de forma de string los atributos
         return "Cantante{" + "nombreArtistico=" + nombreArtistico
                 + ", generoMusical=" + generoMusical + ", numeroDeSencillos=" + numeroDeSencillos
                 + ", numeroDeConciertos=" + numeroDeConciertos + ", numeroDeGiras=" + numeroDeGiras

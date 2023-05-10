@@ -22,20 +22,21 @@ public class Compositor extends Persona {
      *
      */
     public Compositor() {
-    }
+    }//constructor vacio
 
     public Compositor(int numeroDeComposiciones, List<Cancion> cancionesTop100Billboard, List<Cantante> clientes, int codigo, String nombre, String apellido, int edad, String Nacionalidad, double salario) {
-        super(codigo, nombre, apellido, edad, Nacionalidad, salario);
+        super(codigo, nombre, apellido, edad, Nacionalidad, salario);//constructor con todos los  parametros de la clase Compositor
         this.numeroDeComposiciones = numeroDeComposiciones;
         this.cancionesTop100Billboard = cancionesTop100Billboard;
         this.clientes = clientes;
     }
 
     public Compositor(int numeroDeComposiciones, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
-        super(codigo, nombre, apellido, edad, nacionalidad, salario);
+        super(codigo, nombre, apellido, edad, nacionalidad, salario);//constructor con un  parametros de la clase Cancion
         this.numeroDeComposiciones = numeroDeComposiciones;
     }
-
+  //metodos de encapsulamiento get y set 
+    
     public int getNumeroDeComposiciones() {
         return numeroDeComposiciones;
     }
@@ -61,7 +62,7 @@ public class Compositor extends Persona {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() {//Retorna el valor del hashcode
         int hash = 7;
         hash = 97 * hash + this.numeroDeComposiciones;
         hash = 97 * hash + Objects.hashCode(this.cancionesTop100Billboard);
@@ -70,6 +71,10 @@ public class Compositor extends Persona {
 
     @Override
     public boolean equals(Object obj) {
+        /*
+    *Compara si la instancia actual de la clase Cantante es igual a otro objeto.
+    *retorna  true si la instancia actual de esta clase Cantante es igual al objeto pasado como parametro
+     */
         if (this == obj) {
             return true;
         }
@@ -118,7 +123,7 @@ public class Compositor extends Persona {
     }
 
     @Override
-    public String toString() {
+    public String toString() {//Metodo toString que devuelve de forma de string los atributos
         return "Compositor{" + "numeroDeComposiciones=" + numeroDeComposiciones
                 + ", cancionesTop100Billboard=" + cancionesTop100Billboard + ", clientes=" + clientes + '}';
     }
