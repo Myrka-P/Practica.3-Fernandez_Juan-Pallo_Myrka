@@ -9,5 +9,6 @@ package ec.edu.ups.prac_3_fernandez___pallo.idao;
  * @author Myrka
  */
 public class idao {
+    hola
     
 }
